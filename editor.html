@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ficherint - Acceso</title>
+	<link rel="shortcut icon" type="image/x-icon" href="">
+<style>
+html,body {
+	min-height: 100%;
+	font-weight: 300;
+	font-size: 1em;
+	color: #fff;
+}
+body {
+	background: #2e3441;
+	background-image: -webkit-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
+	background-image: -moz-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
+	background-image: -o-radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
+	background-image: radial-gradient(top, circle cover, #4e7a89, #2e3441 80%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.signin {
+	display: block;
+	position: relative;
+	width: 250px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: rgba(0,0,0,0.1);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
+	box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.2), inset -1px -1px 0 0 rgba(0,0,0,0.2);
+}
+.signin .avatar {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 35px auto;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	-webkit-pointer-events: none;
+	-moz-pointer-events: none;
+	pointer-events: none;
+}
+.signin .inputrow {
+	position: relative;
+}
+.signin .inputrow label {
+	position: absolute;
+	top: 12px;
+	left: 10px;
+}
+.signin .inputrow label:before {
+	color: #538a9a;
+	opacity: 0.4;
+	-webkit-transition: opacity 300ms 0 ease;
+	-moz-transition: opacity 300ms 0 ease;
+	transition: opacity 300ms 0 ease;
+}
+.signin input[type="text"],
+.signin input[type="email"],
+.signin input[type="password"] {
+	padding: 10px 12px 10px 32px;
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	border: 1px solid rgba(255,255,255,0.5);
+	background-color: #fff;
+	color: #333;
+	font-size: 1em;
+	font-weight: 300;
+	outline: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: border-color 300ms 0 ease;
+	-moz-transition: border-color 300ms 0 ease;
+	transition: border-color 300ms 0 ease;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.signin input[type="text"]:focus + label:before,
+.signin input[type="password"]:focus + label:before {
+	opacity: 1;
+}
+.signin input[type="submit"] {
+	-webkit-appearance: none;
+	height: 40px;
+	padding: 10px 12px;
+	margin-bottom: 10px;
+	background-color: #538a9a;
+	text-transform: uppercase;
+	color: #fff;
+	border: 0px;
+	float: right;
+	margin: 0;
+	outline: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.signin input[type="submit"]:hover {
+	background-color: #5e98a8;
+}
+.signin input[type="submit"]:active {
+	background-color: #4a7b89;
+}
+input[type="checkbox"] {
+	display: none;
+}
+input[type="checkbox"] + label {
+	position: relative;
+	padding-left: 36px;
+	font-size: 0.6em;
+	font-weight: normal;
+	line-height: 16px;
+	opacity: 0.8;
+	text-transform: uppercase;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+input[type="checkbox"] + label:before,
+input[type="checkbox"] + label:after {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 16px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+input[type="checkbox"] + label:before {
+	left: 0;
+	top: -2px;
+	width: 30px;
+	background: rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+}
+input[type="checkbox"] + label:after {
+	opacity: 0.3;
+	background: #fff;
+	top: 0px;
+	left: 2px;
+	height: 12px;
+	width: 12px;
+	-webkit-transition: all 200ms 0 ease;
+	-moz-transition: all 200ms 0 ease;
+	transition: all 200ms 0 ease;
+}
+input[type="checkbox"]:checked + label {
+	opacity: 1;
+}
+input[type="checkbox"]:checked + label:after {
+	opacity: 1;
+	left: 16px;
+}
+.cf:before,
+.cf:after {
+	content: " ";
+	display: table;
+}
+.cf:after {
+	clear: both;
+}
+.cf {
+	*zoom: 1;
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+</head>
+<body>
+<div class="signin cf">
+	<div class="avatar"><img src=" data:image/png;base64,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" /></div>
+	<form onsubmit="return false;">
+		<div class="inputrow">
+			<input id="correo_" placeholder="Correo electrónico" type="email" />
+			<input id="clave_" placeholder="Contraseña" type="password" />
+		</div>
+		<input value="Acceder" type="submit" onclick="acceder()" />
+	</form>
+</div>
+	<script>
+	var firebaseConfig = {
+						apiKey: "AIzaSyAQI8h3zHTDhHPxR2wjCPraOJ8yq74nkvo",
+						authDomain: "editorweb-666.firebaseapp.com",
+						databaseURL: "https://editorweb-666.firebaseio.com",
+						projectId: "editorweb-666",
+						storageBucket: "editorweb-666.appspot.com",
+						messagingSenderId: "781262855367",
+						appId: "1:781262855367:web:0f5f3e670f77e2ef9732e2"
+					};
+					// Initialize Firebase
+					firebase.initializeApp(firebaseConfig);
+
+					function acceder(predeterminado = false) {
+						let email
+						let password
+						if(predeterminado) {
+							email = "demo@demonio.org"
+							password = "clavedemo"
+						}
+						else {
+							email = document.getElementById("correo_").value.trim();
+							password = document.getElementById("clave_").value.trim();
+						}
+						if(email.length < 0x4) {
+							alert('Escribe un correo electr&oacute;nico.');
+							return;
+						}
+						if(password.length < 0x4) {
+							alert('Escribe una contrase&ntilde;a.');
+							return
+						}
+
+						firebase.auth().signInWithEmailAndPassword(email, password)
+						.then(function(usuario) {
+							console.log(usuario)
+						})
+						.catch(function(error) {
+								// Handle Errors here.
+							var errorCode = error.code;
+							var errorMessage = error.message;
+							if (errorCode === 'auth/wrong-password') {
+								alert('Clave incorrecta.');
+							}
+							else {
+								alert(errorMessage);
+							}
+							console.log(error);
+						});
+					}
+
+					function verToken() {
+						firebase.auth().currentUser.getIdToken().then(function(idToken) {
+							console.log( idToken )
+						})
+					}
+	</script>
+</body>
